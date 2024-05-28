@@ -1,0 +1,21 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["Docker Image CI"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull image from docker
+      run: docker pull oscarenriqq/ec2-example-cicd:latest
+
+    - name: delete image
+      run: docker rm -f oscarenriqq/ec2-example-cicd:latest
+
+    - name: Run docker container
+      run: docker run -d -p 80:8000 oscarenriqq/ec2-example-cicd:latest
