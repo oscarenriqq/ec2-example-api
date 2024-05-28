@@ -19,5 +19,8 @@ jobs:
     - name: Build the Docker image
       run: docker build -t ec2-example-cicd .
 
+    - name: Check images
+      run: docker images
+
     - name: Push image to docker
       run: docker push oscarenriqq/ec2-example-cicd:latest
