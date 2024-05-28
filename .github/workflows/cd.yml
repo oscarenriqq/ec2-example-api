@@ -11,7 +11,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v4
     - name: Pull image from docker
       run: docker pull oscarenriqq/ec2-example-cicd:latest
 
