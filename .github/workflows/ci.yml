@@ -15,7 +15,9 @@ jobs:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
     - name: Build the Docker image
-      run: docker build -t ec2-example-cicd . 
+      run: docker build -t ec2-example-cicd .
+
     - name: Push image to docker
       run: docker push oscarenriqq/ec2-example-cicd:latest
