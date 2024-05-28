@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Pull image from docker
-      run: docker pull oscarenriqq/ec2-example-cicd:latest
+      run: sudo docker pull oscarenriqq/ec2-example-cicd:latest
 
     - name: delete image
-      run: docker rm -f oscarenriqq/ec2-example-cicd:latest
+      run: sudo docker rm -f oscarenriqq/ec2-example-cicd:latest
 
     - name: Run docker container
-      run: docker run -d -p 80:80 oscarenriqq/ec2-example-cicd:latest
+      run: sudo docker run -d -p 80:80 oscarenriqq/ec2-example-cicd:latest
