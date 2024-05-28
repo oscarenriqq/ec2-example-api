@@ -1,6 +1,17 @@
 FROM php:8.1-alpine
 
-RUN apt-get update && apt-get install -y composer
+RUN apk update 
+RUN apk upgrade
+RUN apk add --no-cache bash
+
+RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+
+# INSTALL COMPOSER
+RUN curl -s https://getcomposer.org/installer | php
+RUN alias composer='php composer.phar'
+
+# INSTALL NGINX
+RUN apk add nginx
 
 COPY . /var/www/html
 
