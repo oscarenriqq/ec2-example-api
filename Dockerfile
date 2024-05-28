@@ -13,11 +13,9 @@ RUN alias composer='php composer.phar'
 # INSTALL NGINX
 RUN apk add nginx
 
-COPY . /var/www/html
-
-COPY ./.env /var/www/html/.env
-
 WORKDIR /var/www/html
+
+COPY . .
 
 RUN composer install
 
