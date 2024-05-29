@@ -19,9 +19,3 @@ jobs:
 
     - name: Run docker container
       run: sudo docker run -d -p 8080:80 --name ec2-example-cicd oscarenriqq/ec2-example-cicd:latest
-
-    - name: Copy .env file
-      run: sudo cp .env.example .env
-
-    - name: Generate keys
-      run: php artisan key:generate
